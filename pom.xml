@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
+
+    <groupId>org.codehaus.izpack</groupId>
+    <artifactId>izpack-custom-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+    <name>izpack-custom-test</name>
+    <description>izpack-custom-test POM</description>
+    
+    <properties>
+        <projectname>izpack-test</projectname>
+        <projectversion>${project.version}</projectversion>
+        <projectartifact>izpack-test</projectartifact>
+
+        <maven.build.timestamp.format>dd.MM.yyyy HH:mm</maven.build.timestamp.format>
+        <build-timestamp>${maven.build.timestamp}</build-timestamp>
+        
+        <izpack-staging>${project.build.directory}/staging</izpack-staging>
+        <izpack.version>5.1.2</izpack.version>
+    </properties>
+    
+    <modules>
+        <module>izpack-custom</module>
+        <module>izpack-test</module>
+    </modules>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.codehaus.izpack.custom</groupId>
+                <artifactId>custom-installer-panel</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.izpack</groupId>
+                <artifactId>izpack-test-installer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+</project>
